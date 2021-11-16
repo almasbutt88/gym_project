@@ -1,31 +1,40 @@
-DROP TABLE IF EXISTS gym_classes;
+DROP TABLE IF EXISTS bookings;
+DROP TABLE IF EXISTS gym_class;
 DROP TABLE IF EXISTS members;
+
 
 CREATE TABLE members(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    age INT,
-    booked_class VARCHAR (255)
+    age INT
 );
 
-CREATE TABLE gym_classes(
+
+CREATE TABLE gym_class(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    members INT,
+    spaces INT,
     capacity INT
 );
 
-INSERT INTO members (name, age, booked_class) VALUES ('Joe', 40, 'Spin');
-INSERT INTO members (name, age, booked_class) VALUES ('Mary', 55, 'Zoomba');
-INSERT INTO members (name, age, booked_class) VALUES ('Lucy', 24, 'Spin');
-INSERT INTO members (name, age, booked_class) VALUES ('Chris', 17, 'Spin');
-INSERT INTO members (name, age, booked_class) VALUES ('Fraser', 40, 'Spin');
-INSERT INTO members (name, age, booked_class) VALUES ('Lee', 55, 'Zoomba');
-INSERT INTO members (name, age, booked_class) VALUES ('Sean', 24, 'Pilates');
-INSERT INTO members (name, age, booked_class) VALUES ('Mike', 17, 'Body Combat');
+CREATE TABLE bookings(
+    id SERIAL PRIMARY KEY,
+    members_id INT,
+    classes_id INT
+);
+
+INSERT INTO members (name, age) VALUES ('Joe', 40);
+INSERT INTO members (name, age) VALUES ('Mary', 55);
+INSERT INTO members (name, age) VALUES ('Lucy', 24);
+INSERT INTO members (name, age) VALUES ('Chris', 17);
+INSERT INTO members (name, age) VALUES ('Fraser', 40);
+INSERT INTO members (name, age) VALUES ('Lee', 55);
+INSERT INTO members (name, age) VALUES ('Sean', 24);
+INSERT INTO members (name, age) VALUES ('Mike', 17);
 
 
-INSERT INTO gym_classes (name, members, capacity) VALUES ('Spin', 4, 5);
-INSERT INTO gym_classes (name, members, capacity) VALUES ('Zoomba', 2, 5);
-INSERT INTO gym_classes (name, members, capacity) VALUES ('Pilates', 1, 5);
-INSERT INTO gym_classes (name, members, capacity) VALUES ('Body Combat', 1, 5);
+INSERT INTO gym_class (name, spaces, capacity) VALUES ('Spin', 1, 5);
+INSERT INTO gym_class (name, spaces, capacity) VALUES ('Zumba', 3, 5);
+INSERT INTO gym_class (name, spaces, capacity) VALUES ('Body Combat', 4, 5);
+
+-- INSERT INTO bookings (members_id, classes_id) VALUES (1, 4);
