@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+
+<!-- Loop round bookings -->
+<!-- display booking.member.name and booking.gym_class.name -->
+
+
+{% for booking in bookings %}
+{{ booking.name}}
+{% endfor %}
+
+
+{% endblock %}

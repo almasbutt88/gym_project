@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+Please click on the class name to view class details:
+<ul>
+    {% for class in class_list %}
+        <li> <a href="/classes/{{ class.id }}">{{class.name}}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
